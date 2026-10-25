@@ -16,6 +16,7 @@ The GenAI Travel Itinerary Planner turns a traveler's starting city, destination
 It combines:
 
 - A guided trip-request form with input validation.
+- Administrator-provisioned user accounts with sign-in and logout; public signup is disabled.
 - Local CSV travel records for attractions, accommodation, routes, and destination guidance.
 - Retrieval-augmented generation (RAG) to provide relevant local context to the language model.
 - A selectable language-model provider: Ollama, OpenAI, or Gemini.
@@ -108,7 +109,8 @@ Meals, ground transportation, taxes, baggage, insurance, visa fees, and other in
 
 | Area | Available in this prototype | Not provided |
 |---|---|---|
-| Trip request | Origin, destination, dates, budget, currency, travelers, interests, pace, accommodation preference, and notes | User accounts or saved trip history |
+| Access | Administrator-provisioned accounts, sign-in, and logout | Public signup or saved trip history |
+| Trip request | Origin, destination, dates, budget, currency, travelers, interests, pace, accommodation preference, and notes | Persisted trip history |
 | Input checks | Date ordering and same-city origin/destination validation | Geocoding or authoritative city/airport resolution |
 | Itinerary | Structured, day-by-day LLM-generated plan | Guaranteed factual accuracy or operational feasibility |
 | Local data | CSV-backed attractions, hotel estimates, flight samples, and destination guides | Verified or comprehensive destination coverage |

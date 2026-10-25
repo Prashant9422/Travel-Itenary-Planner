@@ -7,6 +7,7 @@ load_dotenv(ROOT_DIR / ".env")
 
 DATA_DIR = ROOT_DIR / "data"
 CHROMA_DIR = Path(os.getenv("CHROMA_DIR", str(ROOT_DIR / ".chroma")))
+AUTH_DB_PATH = Path(os.getenv("AUTH_DB_PATH", str(DATA_DIR / "users.sqlite3")))
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "ollama").strip().lower()
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.1:8b")
