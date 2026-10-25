@@ -3,5 +3,8 @@
 __pycache__/
 .pytest_cache/
 .chroma/
+data/users.sqlite3
+data/users.sqlite3-shm
+data/users.sqlite3-wal
 *.pyc
 .streamlit/secrets.toml

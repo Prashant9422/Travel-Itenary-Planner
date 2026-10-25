@@ -1,10 +1,14 @@
 import streamlit as st
+from app.components.auth import require_authentication
 from app.components.sidebar import render_sidebar
 from app.components.trip_form import render_trip_form
 from app.components.itinerary_view import render_itinerary
 from app.services.itinerary_service import generate_itinerary
 
 st.set_page_config(page_title="AI Travel Itinerary Planner", page_icon="🧭", layout="wide")
+if not require_authentication():
+    st.stop()
+
 st.title("🧭 GenAI Travel Itinerary Planner")
 st.caption("Plan smarter trips with LangChain, RAG, local travel data, and your preferred LLM.")
 st.markdown("Generate a day-wise plan tailored to your dates, budget, interests, and travel style.")

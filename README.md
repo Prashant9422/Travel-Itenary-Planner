@@ -93,6 +93,18 @@ CSV data service          RAG service
 
 7. Open the local URL Streamlit prints (normally `http://localhost:8501`). The first RAG request downloads the embedding model and creates a local Chroma index; this may take a few minutes.
 
+## Authentication and user accounts
+
+The app requires a login. Public signup is disabled; an administrator creates accounts from the project directory using the Python environment for the app:
+
+```bash
+python manage_users.py create-user alice
+```
+
+Enter and confirm a password of at least 12 characters when prompted. Passwords are stored as salted PBKDF2-SHA256 hashes in the local SQLite database at `data/users.sqlite3`, not as plain text. The database is excluded from Git. To store it elsewhere, set `AUTH_DB_PATH` in `.env` to the desired SQLite file path. Create accounts separately on each deployment that uses its own database.
+
+After creating an account, start the app with `streamlit run app.py`, then sign in with the provisioned username and password. Use **Log out** in the sidebar to end the current app session.
+
 ## Use another LLM
 
 The LLM factory is isolated in `app/services/llm_factory.py`. The sidebar lets you choose the provider. Configure the relevant API key and model in `.env`:
